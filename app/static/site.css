@@ -1,0 +1,19 @@
+/*formating the main text of the web pages*/
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+/*formating the heading into the centre of the page and changing colour */
+.heading {
+        display:block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgb(85, 99, 112);
+        font-family:Arial, Helvetica, sans-serif
+}
+.navbar-brand{
+    color: white;
+}
