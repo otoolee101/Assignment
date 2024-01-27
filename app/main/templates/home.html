@@ -1,8 +1,21 @@
 {% extends "layout.html" %}
 {% block title %}
-Homepage
+Reserve Parking
 {% endblock %}
 {% block content %}
-<p>Hello Ellie!</p>
 <p>Welcome to Booker.</p>
+<p>Here you can reserve a car parking space for Liverpool MOD site.</p>
+<div class="reserve_parking">
+    <form>
+            <label>Car Registration:</label>
+            <br>
+                <input type='text' name='registration' size="10" required class='form-control'>
+            <label>Date:</label>
+            <br>
+            <input type='date' name='date' size="10" required class='form-control'>
+            <p></p>
+            <input type='submit' value='Reserve' class='btn btn-primary'>
+            <input type="reset" value="Reset">
+    </form>
+</div>
 {% endblock %}

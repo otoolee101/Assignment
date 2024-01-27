@@ -14,6 +14,62 @@
         color: rgb(85, 99, 112);
         font-family:Arial, Helvetica, sans-serif
 }
-.navbar-brand{
+
+/*formatting the nav bar*/ 
+.navbar {
+    background-color: rgb(85, 99, 112);
+    font-size: 1.2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
+    padding: 8px 30px 2px 4px;   
+}
+
+/*formatting options on the the nav bar*/ 
+.navbar-item {
+    padding: 8px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  /*format the dropdown option for account*/ 
+.dropdown-content {
+display: none;
+position: absolute;
+background-color:white;
+min-width: 160px;
+box-shadow: 0 8px 16px 0 rgba(11, 1, 1, 0.984);
+z-index: 1;
+color: white;
+}
+
+/*allows menu to appear when you hover over it*/
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+/*added a down arrow to drop down*/ 
+.dropdown-arrow::after {
+content: '\25BC'; 
+margin-left: 5px;
+}
+
+/*change colour of items in dropdown*/ 
+.navbar-items{
+color: rgb(85, 99, 112);
+}
+
+.reservations_table {
+    border: 1px solid black;
+    padding:0em 2em;
+    border-collapse: collapse;
+    border-left: 1px solid black;
+  }
+  tr {
+    border-bottom: 1px solid black;
+  }
+  td {
+    padding: 1em;
+    border-left: 1px solid black;
 }
