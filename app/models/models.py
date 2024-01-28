@@ -10,8 +10,8 @@ class User(db.Model, UserMixin):
     
 
 """Creating database to store the resolve ticket details in"""
-class registration(db.Model):
-    __tablename__ = 'registration'
+class reserve(db.Model):
+    __tablename__ = 'reserve'
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     username = db.Column(db.String(20), db.ForeignKey('user.id'), nullable=False)
     registration = db.Column(db.String(100), nullable=False)

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}
+Admin
+{% endblock %}
+{% block content %}
+<p>Existing user are below. If you need to change a user role please press edit.</p>
+<table class='manage_account'>
+        <thead>
+            <th>Id</th>
+            <th>Username</th>
+        </thead>
+        <tbody>
+        <tr>
+            {% for manage_account in manage_account %}
+            <td>{{manage_account.id}}</td>
+            <td>{{manage_account.username}}</td>
+            {%endfor%}
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

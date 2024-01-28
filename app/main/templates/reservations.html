@@ -10,4 +10,15 @@ Reservations
       <th>Registration</th>
       <th>Date</th>
     </thead>
+    <tbody>
+      {% for reservation in reservation %}
+        <tr>
+          <td>{{reservation.id}}</td>
+          <td>{{reservation.username}}</td>
+          <td>{{reservation.registration}}</td>
+          <td>{{reservation.date}}</td>
+        </tr>
+      {%endfor%}
+      </tbody>
+  </table>
 {% endblock %}

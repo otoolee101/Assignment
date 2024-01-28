@@ -6,10 +6,13 @@ Reserve Parking
 <p>Welcome to Booker.</p>
 <p>Here you can reserve a car parking space for Liverpool MOD site.</p>
 <div class="reserve_parking">
-    <form>
+    <form method='post' action="{{url_for('main.reserve_parking')}}">
+            <label>Username:</label>
+            <br>
+            <input type='text' name='username' size="10" required class='form-control'>
             <label>Car Registration:</label>
             <br>
-                <input type='text' name='registration' size="10" required class='form-control'>
+            <input type='text' name='registration' size="10" required class='form-control'>
             <label>Date:</label>
             <br>
             <input type='date' name='date' size="10" required class='form-control'>

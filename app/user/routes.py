@@ -3,7 +3,7 @@ from app.models.models import User
 from app.user.forms import LoginForm
 from app.extensions import db, bcrypt
 from app.user.forms import RegisterForm, LoginForm
-from flask_login import login_required, login_user, logout_user
+from flask_login import current_user, login_required, login_user, logout_user
 from app.user import bp
 
 
@@ -16,7 +16,7 @@ def login():
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('main.home'))
+                return redirect(url_for('main.reserve_parking'))
             else:
                 flash("You have entered an incorrect username or password. Please try again.")
         else:
@@ -42,9 +42,12 @@ def register():
         
     return render_template('register.html', form=form)
 
-@bp.route("/user")
-def user():
-    return render_template("user.html") 
+@bp.route("/manage_account")
+@login_required
+def manage_account():
+    manage_account= User.query.all()
+    return render_template('manage_account.html',manage_account=manage_account)
+   
 
 """function to log out of resolve"""
 @bp.route('/logout/', methods=['GET', 'POST'])

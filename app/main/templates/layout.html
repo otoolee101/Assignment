@@ -24,17 +24,16 @@
             <h1>Booker.</h1>  
 
         <div class="navbar">
-          <!--<a  class="navbar-brand">Booker</a>-->
-          <a  href="{{ url_for('main.home') }}" class="navbar-item">Reserve Parking</a>
+          <a  href="{{ url_for('main.reserve_parking') }}" class="navbar-item">Reserve Parking</a>
           <a href="{{ url_for('main.reservations') }}" class="navbar-item">Reservations</a>
-         <!---- <a class="navbar-item">Manage Account</a>
-          <a  class="navbar-item">Log Out</a>-->
           <div class="dropdown">
             <a class="navbar-item dropdown-arrow" href="#">Account Options</a>
             <div class="dropdown-content">
-              <a href="{{ url_for('user.user') }}" class="navbar-items" href="#">Manage Account</a><br>
+              <a href="{{ url_for('user.manage_account') }}" class="navbar-items" href="#">Manage Account</a><br>
               <a href="{{ url_for('user.logout') }}" class="navbar-items" href="#">Log Out</a><br>
+              {% if current_user.role == 'admin' %}  
               <a href="{{ url_for('admin.admin') }}" class="navbar-items" href="#">Admin</a>
+              {% endif %}
             </div>
           </div>
         </div>

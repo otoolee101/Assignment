@@ -3,5 +3,32 @@
 Admin
 {% endblock %}
 {% block content %}
-<p>Welcome to the admin page</p>
+<p>Existing user are below. If you need to change a user role please press edit.</p>
+<table class='admin_table'>
+    <thead>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+     {% for admin in admin %}
+      <tr>
+        <td>{{admin.id}}</td>
+        <td>{{admin.username}}</td>
+        <td>{{admin.password}}</td>
+        <td>{{admin.role}}</td>
+        <td><a href='{{url_for("admin.edit_user", id=admin.id)}}' class='btn btn-primary'>Edit</a></td>
+        <td>
+          <form method="POST" action="/delete_user/">
+            <input type="hidden" value="{{admin.id}}" name="id">
+            <input type="submit" value="Delete" onclick='return confirm("Are you sure you want to delete this user?")'>
+          </form>
+         </td>
+      </tr>
+     {%endfor%}
+    </tbody>
+  </table>
 {% endblock %}
