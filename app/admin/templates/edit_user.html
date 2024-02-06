@@ -9,12 +9,15 @@ Admin
             <br>
                 <input type='text' name='username' size="100" required class='form-control' value='{{admin.username}}'>
             <p></p>
+            <label>Username:</label>
+            <br>
+                <input type='text' name='registration' size="100" required class='form-control' value='{{admin.registration}}'>
+            <p></p>
             <label>Role:</label>
             <br>
             <select name="role" id="role" class='form-control'>
                 <option value = "{{admin.role}}">{{admin.role}}</option>
                 <option value="admin">admin</option>
-                <option value="agent">agent</option>
                 <option value="user">user</option>
             </select>
             <p></p>

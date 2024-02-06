@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+Edit Account
+{% endblock %}
+{% block content %}
+<p>Existing user are below. If you need to change a user role please press edit.</p>
+<div class='manage_account'>
+    <form method='post' action='/edit_account/{{edit_account.id}}'>
+        <label>Username:</label>
+            <br>
+            <input type='text' name='username' size="10" required class='form-control' value='{{edit_account.username}}' >
+            <label>Car Registration:</label>
+            <br>
+            <input type='text' name='registration' size="10" required class='form-control' value='{{edit_account.registration}}' >
+            <input type='submit' value='Update' class='btn btn-primary'>
+    </form>
+{% endblock %}

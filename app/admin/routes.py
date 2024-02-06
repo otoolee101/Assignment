@@ -1,7 +1,7 @@
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
 from app.admin import bp
-from app.models.models import User
+from app.models.models import User, reserve
 from app.extensions import db
     
 """Function to return all user account when you are loggined in as a admin user."""
@@ -23,6 +23,7 @@ def edit_user(id):
         admin = User.query.get_or_404(id)
         if request.method == "POST":
             admin.username = request.form['username']
+            admin.registration = request.form['registration']
             admin.role = request.form['role']
             try:
                 db.session.commit()
@@ -54,3 +55,22 @@ def delete_user():
     else:
         flash("You do not have the correct permissions to delete this user. Please contact system adminstrator.")
         return render_template("admin.html")
+
+"""function to delete tickets, only visiable for admin users"""
+@bp.route("/delete_reservation/", methods=['GET', 'POST'])
+@login_required
+def delete_reservation():
+    if current_user.role == 'admin':
+        id = request.form.get("id")
+        delete_reservation = reserve.query.filter_by(id=id).first()
+        try:
+            db.session.delete(delete_reservation)
+            db.session.commit()
+            flash("Reservation was deleted successfully.")
+            return redirect(url_for("main.reservations"))
+        except:
+            flash("Reservation failed to delete")
+            return render_template("main/reservations.html")
+    else:
+        flash("You do not have the correct permissions to delete this ticket. Please contact system adminstrator.")
+    return render_template("main/reservations.html")

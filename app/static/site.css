@@ -73,3 +73,8 @@ color: rgb(85, 99, 112);
     padding: 1em;
     border-left: 1px solid black;
 }
+
+.tables{
+  background-color: rgb(85, 99, 112);
+  color: white;
+}

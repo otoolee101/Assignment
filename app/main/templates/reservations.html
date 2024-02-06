@@ -3,21 +3,38 @@
 Reservations
 {% endblock %}
 {% block content %}
-<table class='reservations_table'>
-    <thead>
+<table class="table table-hover">
+  <thead class="tables">
       <th>ID</th>
       <th>Username</th>
       <th>Registration</th>
       <th>Date</th>
+      <th>Edit Reservation</th>
+      {% if current_user.role == 'admin' %}
+      <th>Delete</th>
+      {% endif %}
     </thead>
     <tbody>
       {% for reservation in reservation %}
-        <tr>
-          <td>{{reservation.id}}</td>
-          <td>{{reservation.username}}</td>
-          <td>{{reservation.registration}}</td>
-          <td>{{reservation.date}}</td>
-        </tr>
+        
+          <tr>
+            <td>{{reservation.id}}</td>
+            <td>{{reservation.username}}</td>
+            <td>{{reservation.registration}}</td>
+            <td>{{reservation.date}}</td>
+              <div class="edit_button">
+                <td><a href='{{url_for("main.edit_reservations", id=reservation.id)}}' class='btn btn-primary'>Edit</a></td>
+              </div>
+              {% if current_user.role == 'admin' %}
+              <td>
+                <form method="POST" action="/delete_reservation/">
+                  <input type="hidden" value="{{reservation.id}}" name="id">
+                  <input type="submit" value="Delete" onclick='return confirm("Are you sure you want to delete this ticket?")'></a>
+                </form>
+               </td>
+              {% endif %}
+          </tr>
+           
       {%endfor%}
       </tbody>
   </table>

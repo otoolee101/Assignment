@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+Edit Reservations
+{% endblock %}
+{% block content %}
+<div class="edit_reservations">
+    <form method='post' action='/edit_reservations/{{edit.id}}'>
+            <label>Username:</label>
+            <br>
+            <input type='text' name='username' size="10" required class='form-control' value='{{edit.username}}' readonly>
+            <label>Car Registration:</label>
+            <br>
+            <input type='text' name='registration' size="10" required class='form-control' value='{{edit.registration}}' readonly>
+            <label>Date:</label>
+            <br>
+            <input type='date' name='date' size="10" required class='form-control' value='{{edit.date}}'>
+            <p></p>
+            <input type='submit' value='Reserve' class='btn btn-primary'>
+            <input type="reset" value="Reset">
+    </form>
+</div>
+{% endblock %}

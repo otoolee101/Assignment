@@ -1,21 +1,29 @@
 {% extends "layout.html" %}
 {% block title %}
-Admin
+Manage Account
 {% endblock %}
 {% block content %}
-<p>Existing user are below. If you need to change a user role please press edit.</p>
 <table class='manage_account'>
-        <thead>
-            <th>Id</th>
-            <th>Username</th>
-        </thead>
-        <tbody>
-        <tr>
-            {% for manage_account in manage_account %}
-            <td>{{manage_account.id}}</td>
-            <td>{{manage_account.username}}</td>
-            {%endfor%}
-        </tr>
-        </tbody>
-    </table>
+  <table class="table table-hover">
+    <thead class="tables">
+      <th>ID</th>
+      <th>Username</th>
+      <th>Registration</th>
+      <th>Edit Account</th>
+    </thead>
+    <tbody>
+        {% for account in account %}
+        
+          <tr>
+            <td>{{account.id}}</td>
+            <td>{{account.username}}</td>
+            <td>{{account.registration}}</td>
+            <div class="edit_button">
+                <td><a href='{{url_for("user.edit_account", id=account.id)}}' class='btn btn-primary'>Edit</a></td>
+              </div>
+          </tr>
+           
+      {%endfor%}
+      </tbody>
+  </table>
 {% endblock %}

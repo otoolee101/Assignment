@@ -9,10 +9,10 @@ Reserve Parking
     <form method='post' action="{{url_for('main.reserve_parking')}}">
             <label>Username:</label>
             <br>
-            <input type='text' name='username' size="10" required class='form-control'>
+            <input type='text' name='username' size="10" required class='form-control' value="{{current_user.username}}" readonly>
             <label>Car Registration:</label>
             <br>
-            <input type='text' name='registration' size="10" required class='form-control'>
+            <input type='text' name='registration' size="10" required class='form-control' value="{{current_user.registration}}" readonly>
             <label>Date:</label>
             <br>
             <input type='date' name='date' size="10" required class='form-control'>

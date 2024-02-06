@@ -4,10 +4,11 @@ Admin
 {% endblock %}
 {% block content %}
 <p>Existing user are below. If you need to change a user role please press edit.</p>
-<table class='admin_table'>
-    <thead>
+<table class="table table-hover">
+  <thead class="tables">
         <th>ID</th>
         <th>Username</th>
+        <th>Registration</th>
         <th>Password</th>
         <th>Role</th>
         <th>Edit</th>
@@ -18,6 +19,7 @@ Admin
       <tr>
         <td>{{admin.id}}</td>
         <td>{{admin.username}}</td>
+        <td>{{admin.registration}}</td>
         <td>{{admin.password}}</td>
         <td>{{admin.role}}</td>
         <td><a href='{{url_for("admin.edit_user", id=admin.id)}}' class='btn btn-primary'>Edit</a></td>
