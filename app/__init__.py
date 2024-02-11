@@ -1,3 +1,5 @@
+import logging
+from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask_login import LoginManager
 
@@ -13,6 +15,14 @@ def create_app(config_class=Config):
     # Initialize Flask extensions here
     db.init_app(app)
     login_manager.init_app(app)
+
+    # Configure the logging
+    app.logger.setLevel(logging.INFO)
+    handler = RotatingFileHandler('app.log', maxBytes=10240, backupCount=10)
+    handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    handler.setFormatter(formatter)
+    app.logger.addHandler(handler)
 
     # Register blueprints here
     from app.main import bp as main_bp

@@ -1,0 +1,31 @@
+2024-02-11 18:55:47 - INFO - Username: admin logged in successfully
+2024-02-11 18:55:52 - INFO - Username: admin accessed reservations
+2024-02-11 18:55:54 - WARNING - Username: admin failed to access reservations
+2024-02-11 18:55:55 - INFO - Username: admin accessed edit reservation
+2024-02-11 18:55:55 - INFO - Username: admin edited a reservation 1
+2024-02-11 18:55:55 - INFO - Username: admin accessed reservations
+2024-02-11 18:56:01 - INFO - Username: admin accessed reserve_parking
+2024-02-11 18:56:01 - INFO - Username: admin created a new bookings in reserve_parking
+2024-02-11 18:56:03 - INFO - Username: admin accessed manage_account
+2024-02-11 18:56:05 - WARNING - Username: admin failed to edited account admin
+2024-02-11 18:56:07 - INFO - Username: admin accessed edit_account
+2024-02-11 18:56:07 - INFO - Username: admin successfully edited account admin
+2024-02-11 18:56:07 - INFO - Username: admin accessed manage_account
+2024-02-11 18:56:42 - INFO - Username: admin logged out
+2024-02-11 19:03:42 - INFO - Username: admin logged in successfully
+2024-02-11 19:03:46 - INFO - Username: admin logged out
+2024-02-11 19:04:25 - INFO - Username: kevin successfully created an account
+2024-02-11 19:06:26 - INFO - Username: kevin2 successfully created an account
+2024-02-11 19:08:42 - INFO - Username: KEVIn2 successfully created an account
+2024-02-11 19:09:04 - INFO - Username: admin logged in successfully
+2024-02-11 19:09:07 - INFO - Username: admin accessed admin
+2024-02-11 19:09:24 - WARNING - Username: admin deleted KEVIn2 account
+2024-02-11 19:09:24 - INFO - Username: admin accessed admin
+2024-02-11 19:10:01 - INFO - Username: andypany successfully created an account
+2024-02-11 19:10:09 - INFO - Username: admin logged in successfully
+2024-02-11 19:10:11 - INFO - Username: admin accessed admin
+2024-02-11 19:10:14 - WARNING - Username: admin deleted andypany account
+2024-02-11 19:10:14 - INFO - Username: admin accessed admin
+2024-02-11 19:12:02 - INFO - Username: admin logged in successfully
+2024-02-11 19:12:04 - INFO - Username: admin accessed admin
+2024-02-11 19:12:09 - INFO - Username: admin logged out

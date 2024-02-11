@@ -11,6 +11,7 @@ Admin
         <th>Registration</th>
         <th>Password</th>
         <th>Role</th>
+        <th>Authorised</th>
         <th>Edit</th>
         <th>Delete</th>
     </thead>
@@ -22,6 +23,7 @@ Admin
         <td>{{admin.registration}}</td>
         <td>{{admin.password}}</td>
         <td>{{admin.role}}</td>
+        <td>{{admin.authorised}}</td>
         <td><a href='{{url_for("admin.edit_user", id=admin.id)}}' class='btn btn-primary'>Edit</a></td>
         <td>
           <form method="POST" action="/delete_user/">

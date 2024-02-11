@@ -21,6 +21,14 @@ Admin
                 <option value="user">user</option>
             </select>
             <p></p>
+            <label>Authorised:</label>
+            <br>
+            <select name="authorised" id="authorised" class='form-control'>
+                <option value = "{{admin.authorised}}">{{admin.authorised}}</option>
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+            </select>
+            <p></p>
             <input type='submit' value='Edit' class='btn btn-primary'>
     </form>
 {% endblock %}
