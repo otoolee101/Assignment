@@ -1,31 +1,21 @@
-2024-02-11 18:55:47 - INFO - Username: admin logged in successfully
-2024-02-11 18:55:52 - INFO - Username: admin accessed reservations
-2024-02-11 18:55:54 - WARNING - Username: admin failed to access reservations
-2024-02-11 18:55:55 - INFO - Username: admin accessed edit reservation
-2024-02-11 18:55:55 - INFO - Username: admin edited a reservation 1
-2024-02-11 18:55:55 - INFO - Username: admin accessed reservations
-2024-02-11 18:56:01 - INFO - Username: admin accessed reserve_parking
-2024-02-11 18:56:01 - INFO - Username: admin created a new bookings in reserve_parking
-2024-02-11 18:56:03 - INFO - Username: admin accessed manage_account
-2024-02-11 18:56:05 - WARNING - Username: admin failed to edited account admin
-2024-02-11 18:56:07 - INFO - Username: admin accessed edit_account
-2024-02-11 18:56:07 - INFO - Username: admin successfully edited account admin
-2024-02-11 18:56:07 - INFO - Username: admin accessed manage_account
-2024-02-11 18:56:42 - INFO - Username: admin logged out
-2024-02-11 19:03:42 - INFO - Username: admin logged in successfully
-2024-02-11 19:03:46 - INFO - Username: admin logged out
-2024-02-11 19:04:25 - INFO - Username: kevin successfully created an account
-2024-02-11 19:06:26 - INFO - Username: kevin2 successfully created an account
-2024-02-11 19:08:42 - INFO - Username: KEVIn2 successfully created an account
-2024-02-11 19:09:04 - INFO - Username: admin logged in successfully
-2024-02-11 19:09:07 - INFO - Username: admin accessed admin
-2024-02-11 19:09:24 - WARNING - Username: admin deleted KEVIn2 account
-2024-02-11 19:09:24 - INFO - Username: admin accessed admin
-2024-02-11 19:10:01 - INFO - Username: andypany successfully created an account
-2024-02-11 19:10:09 - INFO - Username: admin logged in successfully
-2024-02-11 19:10:11 - INFO - Username: admin accessed admin
-2024-02-11 19:10:14 - WARNING - Username: admin deleted andypany account
-2024-02-11 19:10:14 - INFO - Username: admin accessed admin
-2024-02-11 19:12:02 - INFO - Username: admin logged in successfully
-2024-02-11 19:12:04 - INFO - Username: admin accessed admin
-2024-02-11 19:12:09 - INFO - Username: admin logged out
+2024-02-18 20:57:40 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 868, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1243, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\user\routes.py", line 14, in make_session_permanent
+    current_app.permanent_session_lifetime = timedelta(minute=5)
+                                             ^^^^^^^^^^^^^^^^^^^
+TypeError: 'minute' is an invalid keyword argument for __new__()
+2024-02-18 20:58:23 - INFO - Username: admin logged in successfully
+2024-02-18 20:58:25 - INFO - Username: admin accessed reservations
+2024-02-18 20:58:35 - INFO - Username: admin logged out

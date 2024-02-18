@@ -1,10 +1,17 @@
-from flask import current_app, flash, redirect, render_template, request, url_for
+from datetime import timedelta
+from flask import current_app, flash, redirect, render_template, request, session, url_for
 from app.models.models import User
 from app.user.forms import LoginForm
 from app.extensions import db, bcrypt
 from app.user.forms import RegisterForm, LoginForm
 from flask_login import current_user, login_required, login_user, logout_user
 from app.user import bp
+
+#end session if no activity has occured withing 5 minutes 
+@bp.before_app_request  
+def make_session_permanent():
+    session.permanent = True
+    current_app.permanent_session_lifetime = timedelta(seconds=30)
 
 """function to log into booker"""
 @bp.route('/', methods=['GET', 'POST'])
@@ -14,22 +21,33 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
+                session.permanent = True
+                user.failed_login_attempts = 0
+                db.session.commit()
                 login_user(user)            
-                if current_user.authorised =='Y':
-                    current_app.logger.info('Username: %s logged in successfully', current_user.username)
+                if user.authorised == 'Y':
+                    current_app.logger.info('Username: %s logged in successfully', user.username)
                     return redirect(url_for('main.reserve_parking'))
                 else:
-                    current_user.authorised =='N'
-                    current_app.logger.info('Username: %s attempted to log in but not yet authorised', current_user.username)
-                    return  render_template('unauthorised.html')
+                    current_app.logger.info('Username: %s attempted to log in but not yet authorised', user.username)
+                    return render_template('unauthorised.html')
             else:
-                flash("Username or password incorrect.")
-                current_app.logger.warning('There was failed attempt to login.')
+                user.failed_login_attempts += 1
+                current_app.logger.warning('Username: %s has a failed login attempt', user.username)
+                db.session.commit()
+                if user.failed_login_attempts >= 3:
+                    user.authorised = 'N'
+                    current_app.logger.warning('Username: %s has locked their account', user.username)
+                    flash("Your account has been locked.")
+                    db.session.commit()
+                else:
+                    flash("Username or password incorrect.")
         else:
             flash('Username or password incorrect.')
             current_app.logger.warning('There was a failed attempt to login.')
             return render_template("login.html", form=form)
     return render_template('login.html', form=form)
+
 
 """function to register a user for resolve"""
 @bp.route('/register/', methods=['GET', 'POST'])
@@ -85,7 +103,6 @@ def edit_account(id):
                 current_app.logger.warning('Username: %s failed to edited account %s', current_user.username, edit_user.username)
                 return render_template("manage_account.html", edit_account=edit_account)        
         else:
-            current_app.logger.warning('Username: %s failed to edited account %s', current_user.username, edit_user.username)
             return render_template("edit_account.html", edit_account=edit_account)
         
     else: 

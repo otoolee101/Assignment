@@ -80,17 +80,22 @@ def delete_reservation():
         except:
             flash("Reservation failed to delete")
             current_app.logger.warning('Username: %s failed to deleted reservation: %s ', current_user.username, delete_reservation.id)
-            return render_template("main/reservations.html")
+            return redirect(url_for("main.reservations"))
     else:
         current_app.logger.critical('Username: %s tried to deleted a reservation', current_user.username)
         return render_template("unauthorised.html")
 
 @bp.route('/logging_messages')
+@login_required
 def logging_messages():
-    log_file_path = 'app.log'
-    log_content = read_log_file(log_file_path)
+    if current_user.role == 'admin':
+        log_file_path = 'app.log'
+        log_content = read_log_file(log_file_path)
 
-    return render_template('logging_messages.html', log_content=log_content)
+        return render_template('logging_messages.html', log_content=log_content)
+    else:
+        current_app.logger.critical('Username: %s tried to access log', current_user.username)
+        return render_template("unauthorised.html")
 
 def read_log_file(file_path):
     try:

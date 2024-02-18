@@ -29,8 +29,8 @@
 
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
-                {{ form.username }}<br>
-                {{ form.password }}<br>
+                <input type="text" id="username" name="username" placeholder="username" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')"><br>
+                <input type="password" id="password"  placeholder="password" name="password" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')"><br>
                 <p>
                 {{ form.submit }}
             </form>

@@ -11,7 +11,7 @@ Edit Account
             <input type='text' name='username' size="10" required class='form-control' value='{{edit_account.username}}' readonly>
             <label>Car Registration:</label>
             <br>
-            <input type='text' name='registration' size="10" required class='form-control' value='{{edit_account.registration}}' >
+            <input type='text' name='registration' size="10" required class='form-control' value='{{edit_account.registration}}' oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '')">
             <input type='submit' value='Update' class='btn btn-primary'>
     </form>
 {% endblock %}

@@ -1,0 +1,126 @@
+2024-02-18 19:58:35 - ERROR - Exception on /reserve_parking [POST]
+Traceback (most recent call last):
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\main\routes.py", line 17, in reserve_parking
+    available_spaces_count = available_spaces(date)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\main\routes.py", line 38, in available_spaces
+    reserved_spaces_count = reserve.query.filter(date=date, cancelled = 'N').count()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Query.filter() got an unexpected keyword argument 'date'
+2024-02-18 20:00:56 - INFO - Username: admin logged in successfully
+2024-02-18 20:01:00 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:00 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:01 - INFO - Username: admin accessed reservations
+2024-02-18 20:01:13 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:15 - INFO - Username: admin accessed reservations
+2024-02-18 20:01:22 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:22 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:29 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:29 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:36 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:36 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:40 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:40 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:45 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:45 - INFO - Username: admin created a new booking in reserve_parking
+2024-02-18 20:01:49 - INFO - Username: admin accessed reserve_parking
+2024-02-18 20:01:52 - INFO - Username: admin accessed reservations
+2024-02-18 20:02:02 - INFO - Username: admin cancelled reservation: 2
+2024-02-18 20:02:02 - INFO - Username: admin accessed reservations
+2024-02-18 20:02:07 - INFO - Username: admin logged out
+2024-02-18 20:02:19 - INFO - Username: ellie successfully created an account
+2024-02-18 20:02:24 - INFO - Username: admin logged in successfully
+2024-02-18 20:02:26 - INFO - Username: admin accessed admin
+2024-02-18 20:02:31 - INFO - Username: admin accessed edit_user
+2024-02-18 20:02:31 - INFO - Username: admin updated user account ellie
+2024-02-18 20:02:31 - INFO - Username: admin accessed admin
+2024-02-18 20:02:37 - INFO - Username: admin logged out
+2024-02-18 20:02:42 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:02:46 - INFO - Username: ellie logged in successfully
+2024-02-18 20:02:51 - INFO - Username: ellie accessed reserve_parking
+2024-02-18 20:02:51 - INFO - Username: ellie created a new booking in reserve_parking
+2024-02-18 20:02:55 - INFO - Username: ellie accessed reserve_parking
+2024-02-18 20:02:59 - INFO - Username: ellie accessed reservations
+2024-02-18 20:03:03 - INFO - Username: ellie logged out
+2024-02-18 20:06:11 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\user\routes.py", line 12, in login
+    form = LoginForm()
+           ^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\wtforms\form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask_wtf\form.py", line 73, in __init__
+    super().__init__(formdata=formdata, **kwargs)
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\wtforms\form.py", line 280, in __init__
+    super().__init__(self._unbound_fields, meta=meta_obj, prefix=prefix)
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\wtforms\form.py", line 48, in __init__
+    field = meta.bind_field(self, unbound_field, options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\wtforms\meta.py", line 28, in bind_field
+    return unbound_field.bind(form=form, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\wtforms\fields\core.py", line 399, in bind
+    return self.field_class(*self.args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Field.__init__() got an unexpected keyword argument 'oninput'
+2024-02-18 20:08:54 - INFO - Username: admin logged in successfully
+2024-02-18 20:09:00 - INFO - Username: admin logged out
+2024-02-18 20:10:22 - INFO - Username: admin logged in successfully
+2024-02-18 20:10:25 - INFO - Username: admin accessed admin
+2024-02-18 20:10:31 - INFO - Username: admin logged out
+2024-02-18 20:10:51 - INFO - Username: ellie logged in successfully
+2024-02-18 20:10:56 - CRITICAL - Username: ellie accessed attempted to access admin
+2024-02-18 20:11:00 - CRITICAL - Username: ellie tried to access log
+2024-02-18 20:11:11 - INFO - Username: ellie logged out
+2024-02-18 20:11:15 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:11:21 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:11:25 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:11:25 - WARNING - Username: ellie has locked their account
+2024-02-18 20:11:33 - INFO - Username: ellie attempted to log in but not yet authorised
+2024-02-18 20:11:45 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:11:52 - WARNING - Username: ellie has a failed login attempt
+2024-02-18 20:31:13 - INFO - Username: admin logged in successfully
+2024-02-18 20:33:05 - INFO - Username: admin logged in successfully
+2024-02-18 20:33:08 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:02 - INFO - Username: admin logged in successfully
+2024-02-18 20:34:07 - INFO - Username: admin accessed admin
+2024-02-18 20:34:21 - INFO - Username: admin accessed edit_user
+2024-02-18 20:34:21 - INFO - Username: admin updated user account ellie
+2024-02-18 20:34:21 - INFO - Username: admin accessed admin
+2024-02-18 20:34:26 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:31 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:35 - INFO - Username: admin accessed admin
+2024-02-18 20:34:39 - INFO - Username: admin accessed admin
+2024-02-18 20:34:43 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:46 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:49 - INFO - Username: admin accessed reservations
+2024-02-18 20:34:52 - INFO - Username: admin accessed admin
+2024-02-18 20:34:56 - INFO - Username: admin logged out
