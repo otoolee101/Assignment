@@ -19,3 +19,6 @@ https://stackoverflow.com/questions/11783025/is-there-an-easy-way-to-make-sessio
 
 loggin
 https://betterstack.com/community/guides/logging/how-to-start-logging-with-flask/
+
+deploy 
+https://levelup.gitconnected.com/deploy-a-production-ready-python-web-app-on-render-for-free-from-start-to-finish-in-3-steps-952e4b7e26a4

@@ -9,11 +9,17 @@ from app.models.models import User
 
 from config import Config
 
-def create_app(config_class=Config):
+def create_app(config_class=None):
     app = Flask(__name__)
-    app.config.from_object(config_class)
-    env_config = os.getenv("PROD_APP_SETTINGS", "config.Config")
-    app.config.from_object(env_config)
+
+    # Apply default configuration
+    if config_class is not None:
+        app.config.from_object(config_class)
+
+    # Apply environment-specific configuration if available
+    env_config = os.getenv("PROD_APP_SETTINGS", None)
+    if env_config is not None:
+        app.config.from_object(env_config)
 
     # Initialize Flask extensions here
     db.init_app(app)
