@@ -1,5 +1,6 @@
 import logging
 from logging.handlers import RotatingFileHandler
+import os
 from flask import Flask
 from flask_login import LoginManager
 
@@ -11,6 +12,8 @@ from config import Config
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+    env_config = os.getenv("PROD_APP_SETTINGS", "config.Config")
+    app.config.from_object(env_config)
 
     # Initialize Flask extensions here
     db.init_app(app)

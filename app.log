@@ -1,136 +1,26 @@
-2024-02-18 20:57:40 - ERROR - Exception on / [GET]
-Traceback (most recent call last):
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 868, in full_dispatch_request
-    rv = self.preprocess_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1243, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\user\routes.py", line 14, in make_session_permanent
-    current_app.permanent_session_lifetime = timedelta(minute=5)
-                                             ^^^^^^^^^^^^^^^^^^^
-TypeError: 'minute' is an invalid keyword argument for __new__()
-2024-02-18 20:58:23 - INFO - Username: admin logged in successfully
-2024-02-18 20:58:25 - INFO - Username: admin accessed reservations
-2024-02-18 20:58:35 - INFO - Username: admin logged out
-2024-02-18 21:02:54 - INFO - Username: cathy successfully created an account
-2024-02-18 21:03:00 - WARNING - Username: cathy has a failed login attempt
-2024-02-18 21:03:07 - WARNING - Username: cathy has a failed login attempt
-2024-02-18 21:03:13 - INFO - Username: admin logged in successfully
-2024-02-18 21:03:15 - INFO - Username: admin accessed admin
-2024-02-18 21:03:20 - INFO - Username: admin logged out
-2024-02-18 21:03:39 - INFO - Username: cathy1 successfully created an account
-2024-02-18 21:03:49 - WARNING - Username: cathy1 has a failed login attempt
-2024-02-18 21:03:57 - INFO - Username: admin logged in successfully
-2024-02-18 21:03:59 - INFO - Username: admin accessed admin
-2024-02-18 21:04:12 - INFO - Username: admin accessed edit_user
-2024-02-18 21:04:12 - INFO - Username: admin updated user account cathy
-2024-02-18 21:04:12 - INFO - Username: admin accessed admin
-2024-02-18 21:04:17 - INFO - Username: admin logged out
-2024-02-18 21:04:24 - WARNING - Username: cathy has a failed login attempt
-2024-02-18 21:04:24 - WARNING - Username: cathy has locked their account
-2024-02-18 21:04:53 - WARNING - Username: ellie has a failed login attempt
-2024-02-18 21:04:53 - WARNING - Username: ellie has locked their account
-2024-02-18 21:04:58 - INFO - Username: admin logged in successfully
-2024-02-18 21:05:05 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:05 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:07 - INFO - Username: admin accessed reservations
-2024-02-18 21:05:13 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:13 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:17 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:17 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:21 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:21 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:26 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:26 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:30 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:34 - INFO - Username: admin accessed reservations
-2024-02-18 21:05:39 - INFO - Username: admin cancelled reservation: 18
-2024-02-18 21:05:39 - INFO - Username: admin accessed reservations
-2024-02-18 21:05:45 - INFO - Username: admin accessed reserve_parking
-2024-02-18 21:05:45 - INFO - Username: admin created a new booking in reserve_parking
-2024-02-18 21:05:46 - INFO - Username: admin accessed reservations
-2024-02-18 21:05:49 - WARNING - Username: admin failed to access reservations
-2024-02-18 21:05:55 - INFO - Username: admin accessed edit reservation
-2024-02-18 21:05:55 - INFO - Username: admin edited a reservation 19
-2024-02-18 21:05:55 - INFO - Username: admin accessed reservations
-2024-02-18 21:05:58 - INFO - Username: admin accessed manage_account
-2024-02-18 21:06:03 - INFO - Username: admin accessed admin
-2024-02-18 21:06:24 - INFO - Username: admin accessed admin
-2024-02-18 21:06:28 - INFO - Username: admin accessed admin
-2024-02-18 21:06:33 - INFO - Username: admin accessed edit_user
-2024-02-18 21:06:33 - INFO - Username: admin updated user account ellie
-2024-02-18 21:06:33 - INFO - Username: admin accessed admin
-2024-02-18 21:06:36 - INFO - Username: admin logged out
-2024-02-18 21:06:43 - WARNING - Username: ellie has a failed login attempt
-2024-02-18 21:06:43 - WARNING - Username: ellie has locked their account
-2024-02-18 21:07:11 - INFO - Username: kevin successfully created an account
-2024-02-18 21:07:19 - WARNING - Username: kevin has a failed login attempt
-2024-02-18 21:07:35 - INFO - Username: admin logged in successfully
-2024-02-18 21:10:02 - WARNING - Username: cathy has a failed login attempt
-2024-02-18 21:10:02 - WARNING - Username: cathy has locked their account
-2024-02-18 21:10:50 - INFO - Username: cathy attempted to log in but not yet authorised
-2024-02-18 21:10:59 - INFO - Username: kevin attempted to log in but not yet authorised
-2024-02-18 21:11:06 - INFO - Username: admin logged in successfully
-2024-02-18 21:11:14 - INFO - Username: admin accessed admin
-2024-02-18 21:11:20 - INFO - Username: admin accessed edit_user
-2024-02-18 21:11:20 - INFO - Username: admin updated user account ellie
-2024-02-18 21:11:20 - INFO - Username: admin accessed admin
-2024-02-18 21:11:26 - INFO - Username: admin accessed edit_user
-2024-02-18 21:11:26 - INFO - Username: admin updated user account cathy
-2024-02-18 21:11:26 - INFO - Username: admin accessed admin
-2024-02-18 21:11:31 - INFO - Username: admin logged out
-2024-02-18 21:14:49 - INFO - Username: kevin attempted to log in but not yet authorised
-2024-02-18 21:16:41 - INFO - Username: kevin attempted to log in but not yet authorised
-2024-02-18 21:16:57 - INFO - Username: cathy logged in successfully
-2024-02-18 21:17:00 - INFO - Username: cathy accessed reservations
-2024-02-18 21:17:06 - INFO - Username: cathy accessed reserve_parking
-2024-02-18 21:17:06 - INFO - Username: cathy created a new booking in reserve_parking
-2024-02-18 21:17:11 - INFO - Username: cathy accessed reserve_parking
-2024-02-18 21:17:11 - INFO - Username: cathy created a new booking in reserve_parking
-2024-02-18 21:17:14 - INFO - Username: cathy accessed reserve_parking
-2024-02-18 21:17:14 - INFO - Username: cathy created a new booking in reserve_parking
-2024-02-18 21:17:16 - INFO - Username: cathy accessed reservations
-2024-02-18 21:17:29 - INFO - Username: cathy cancelled reservation: 21
-2024-02-18 21:17:29 - INFO - Username: cathy accessed reservations
-2024-02-18 21:17:47 - INFO - Username: cathy accessed reservations
-2024-02-18 21:17:50 - INFO - Username: cathy accessed manage_account
-2024-02-18 21:17:52 - INFO - Username: cathy accessed reservations
-2024-02-18 21:18:20 - INFO - Username: cathy logged out
-2024-02-18 21:24:35 - WARNING - Username: ellie has a failed login attempt
-2024-02-18 21:24:35 - WARNING - Username: ellie has locked their account
-2024-02-18 21:24:44 - WARNING - Username: kevin has a failed login attempt
-2024-02-18 21:26:35 - INFO - Username: andrew successfully created an account
-2024-02-18 21:26:42 - WARNING - Username: andrew has a failed login attempt
-2024-02-18 21:26:53 - WARNING - Username: andrew has a failed login attempt
-2024-02-18 21:28:33 - INFO - Username: sophie successfully created an account
-2024-02-18 21:28:42 - INFO - Username: sophie attempted to log in but not yet authorised
-2024-02-18 21:28:55 - INFO - Username: admin logged in successfully
-2024-02-18 21:28:58 - INFO - Username: admin accessed admin
-2024-02-18 21:29:02 - WARNING - Username: admin deleted andrew account
-2024-02-18 21:29:02 - INFO - Username: admin accessed admin
-2024-02-18 21:29:06 - WARNING - Username: admin deleted kevin account
-2024-02-18 21:29:06 - INFO - Username: admin accessed admin
-2024-02-18 21:29:09 - WARNING - Username: admin deleted cathy1 account
-2024-02-18 21:29:09 - INFO - Username: admin accessed admin
-2024-02-18 21:29:12 - WARNING - Username: admin deleted cathy account
-2024-02-18 21:29:12 - INFO - Username: admin accessed admin
-2024-02-18 21:29:19 - INFO - Username: admin accessed edit_user
-2024-02-18 21:29:19 - INFO - Username: admin updated user account sophie
-2024-02-18 21:29:19 - INFO - Username: admin accessed admin
-2024-02-18 21:29:23 - INFO - Username: admin logged out
-2024-02-18 21:29:32 - INFO - Username: sophie logged in successfully
-2024-02-18 21:29:37 - INFO - Username: sophie logged out
-2024-02-18 21:30:59 - INFO - Username: ellie attempted to log in but not yet authorised
-2024-02-18 21:31:08 - INFO - Username: admin logged in successfully
-2024-02-18 21:31:11 - INFO - Username: admin accessed admin
-2024-02-18 21:31:17 - INFO - Username: admin accessed edit_user
-2024-02-18 21:31:17 - INFO - Username: admin updated user account ellie
-2024-02-18 21:31:17 - INFO - Username: admin accessed admin
-2024-02-18 21:31:22 - INFO - Username: admin logged out
+2024-02-21 20:10:00 - INFO - Username: admin logged in successfully
+2024-02-21 20:10:01 - INFO - Username: admin accessed reservations
+2024-02-21 20:10:04 - WARNING - Username: admin failed to access reservations
+2024-02-21 20:10:08 - INFO - Username: admin accessed edit reservation
+2024-02-21 20:10:08 - INFO - Username: admin edited a reservation 13
+2024-02-21 20:10:08 - INFO - Username: admin accessed reservations
+2024-02-21 20:10:10 - INFO - Username: admin accessed manage_account
+2024-02-21 20:10:18 - INFO - Username: admin accessed edit_account
+2024-02-21 20:10:18 - INFO - Username: admin successfully edited account admin
+2024-02-21 20:10:18 - INFO - Username: admin accessed manage_account
+2024-02-21 20:10:25 - INFO - Username: admin logged out
+2024-02-21 20:10:30 - INFO - Username: ellie logged in successfully
+2024-02-21 20:10:34 - INFO - Username: ellie accessed reserve_parking
+2024-02-21 20:10:34 - INFO - Username: ellie created a new booking in reserve_parking
+2024-02-21 20:10:37 - INFO - Username: ellie logged out
+2024-02-21 20:17:36 - INFO - Username: admin logged in successfully
+2024-02-21 20:17:38 - INFO - Username: admin accessed admin
+2024-02-21 20:17:45 - INFO - Username: admin accessed edit_user
+2024-02-21 20:17:45 - INFO - Username: admin updated user account sophie
+2024-02-21 20:17:45 - INFO - Username: admin accessed admin
+2024-02-21 20:17:48 - INFO - Username: admin logged out
+2024-02-21 20:18:36 - INFO - Username: admin logged in successfully
+2024-02-21 20:18:38 - INFO - Username: admin accessed reservations
+2024-02-21 20:18:39 - INFO - Username: admin accessed manage_account
+2024-02-21 20:18:41 - INFO - Username: admin accessed admin
+2024-02-21 20:18:50 - INFO - Username: admin logged out
