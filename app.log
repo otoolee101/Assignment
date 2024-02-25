@@ -1,26 +1,83 @@
-2024-02-21 20:10:00 - INFO - Username: admin logged in successfully
-2024-02-21 20:10:01 - INFO - Username: admin accessed reservations
-2024-02-21 20:10:04 - WARNING - Username: admin failed to access reservations
-2024-02-21 20:10:08 - INFO - Username: admin accessed edit reservation
-2024-02-21 20:10:08 - INFO - Username: admin edited a reservation 13
-2024-02-21 20:10:08 - INFO - Username: admin accessed reservations
-2024-02-21 20:10:10 - INFO - Username: admin accessed manage_account
-2024-02-21 20:10:18 - INFO - Username: admin accessed edit_account
-2024-02-21 20:10:18 - INFO - Username: admin successfully edited account admin
-2024-02-21 20:10:18 - INFO - Username: admin accessed manage_account
-2024-02-21 20:10:25 - INFO - Username: admin logged out
-2024-02-21 20:10:30 - INFO - Username: ellie logged in successfully
-2024-02-21 20:10:34 - INFO - Username: ellie accessed reserve_parking
-2024-02-21 20:10:34 - INFO - Username: ellie created a new booking in reserve_parking
-2024-02-21 20:10:37 - INFO - Username: ellie logged out
-2024-02-21 20:17:36 - INFO - Username: admin logged in successfully
-2024-02-21 20:17:38 - INFO - Username: admin accessed admin
-2024-02-21 20:17:45 - INFO - Username: admin accessed edit_user
-2024-02-21 20:17:45 - INFO - Username: admin updated user account sophie
-2024-02-21 20:17:45 - INFO - Username: admin accessed admin
-2024-02-21 20:17:48 - INFO - Username: admin logged out
-2024-02-21 20:18:36 - INFO - Username: admin logged in successfully
-2024-02-21 20:18:38 - INFO - Username: admin accessed reservations
-2024-02-21 20:18:39 - INFO - Username: admin accessed manage_account
-2024-02-21 20:18:41 - INFO - Username: admin accessed admin
-2024-02-21 20:18:50 - INFO - Username: admin logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:51 - INFO - Username: testuser logged out
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:33:53 - INFO - Username: testuser logged in successfully
+2024-02-25 22:34:35 - INFO - Username: testuser1 successfully created an account
+2024-02-25 22:34:57 - WARNING - There was a failed attempt to login.

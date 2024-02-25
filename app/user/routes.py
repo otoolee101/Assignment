@@ -7,7 +7,7 @@ from app.user.forms import RegisterForm, LoginForm
 from flask_login import current_user, login_required, login_user, logout_user
 from app.user import bp
 
-#end session if no activity has occured withing 5 minutes 
+#end session if no activity has occured withing 60 seconds 
 @bp.before_app_request  
 def make_session_permanent():
     session.permanent = True
@@ -30,7 +30,8 @@ def login():
                     return redirect(url_for('main.reserve_parking'))
                 else:
                     current_app.logger.info('Username: %s attempted to log in but not yet authorised', user.username)
-                    return render_template('unauthorised.html')
+                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+                    return redirect(url_for('user.login'))
             else:
                 user.failed_login_attempts += 1
                 current_app.logger.warning('Username: %s has a failed login attempt', user.username)
@@ -38,12 +39,12 @@ def login():
                 if user.failed_login_attempts >= 3:
                     user.authorised = 'N'
                     current_app.logger.warning('Username: %s has locked their account', user.username)
-                    flash("Your account has been locked.")
+                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
                     db.session.commit()
                 else:
-                    flash("Username or password incorrect.")
+                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
         else:
-            flash('Username or password incorrect.')
+            flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
             current_app.logger.warning('There was a failed attempt to login.')
             return render_template("login.html", form=form)
     return render_template('login.html', form=form)
@@ -62,7 +63,7 @@ def register():
             current_app.logger.info('Username: %s successfully created an account', new_user.username)
             flash("User created successfully. Please log in.")
             return redirect(url_for('user.login'))
-        except: 
+        except Exception: 
             flash("There has been a problem creating your user. Please contact system administration for assistance.")
             current_app.logger.warning('Failure to create a user account')
             return render_template("register.html")
@@ -78,7 +79,8 @@ def manage_account():
         return render_template('manage_account.html', account=account)
     else: 
         current_app.logger.warning('Username: %s failed to access manage_account', current_user.username)
-        return render_template("unauthorised.html") 
+        flash("You are not authorised to access this page")
+        return redirect(url_for('main.reserve_parking'))
 
 
 @bp.route("/edit_account/<int:id>", methods=['POST', 'GET'])
@@ -103,11 +105,13 @@ def edit_account(id):
                 current_app.logger.warning('Username: %s failed to edited account %s', current_user.username, edit_user.username)
                 return render_template("manage_account.html", edit_account=edit_account)        
         else:
+            
             return render_template("edit_account.html", edit_account=edit_account)
         
     else: 
         current_app.logger.critical('Username: %s attempted to edit %s account', current_user.username, edit_user.username)
-        return render_template("unauthorised.html") 
+        flash("You are not authorised to access this page")
+        return redirect(url_for('user.manage_account'))
 
 
 """function to log out of resolve"""

@@ -14,7 +14,8 @@ def admin():
         return render_template('admin.html',admin=admin)
     else:
         current_app.logger.critical('Username: %s accessed attempted to access admin', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reserve_parking"))
     
 """Function to be able to edit a username or role"""
 @bp.route("/edit_user/<int:id>", methods=['GET','POST'])
@@ -41,7 +42,8 @@ def edit_user(id):
             return render_template("edit_user.html", admin=admin)
     else:
         current_app.logger.critical('Username: %s accessed attempted to edit %s account', current_user.username, admin.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reserve_parking"))
 
 """function to delete any users who should no long have access to an account."""
 @bp.route("/delete_user/", methods=['GET', 'POST'])
@@ -62,7 +64,8 @@ def delete_user():
             return render_template("admin.html")
     else:
         current_app.logger.critical('Username: %s tried to deleted an account', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reserve_parking"))
 
 """function to delete tickets, only visiable for admin users"""
 @bp.route("/delete_reservation/", methods=['GET', 'POST'])
@@ -83,7 +86,8 @@ def delete_reservation():
             return redirect(url_for("main.reservations"))
     else:
         current_app.logger.critical('Username: %s tried to deleted a reservation', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reserve_parking"))
 
 @bp.route('/logging_messages')
 @login_required
@@ -95,7 +99,8 @@ def logging_messages():
         return render_template('logging_messages.html', log_content=log_content)
     else:
         current_app.logger.critical('Username: %s tried to access log', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reserve_parking"))
 
 def read_log_file(file_path):
     try:

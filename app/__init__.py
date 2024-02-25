@@ -27,7 +27,7 @@ def create_app():
     handler.setFormatter(formatter)
     app.logger.addHandler(handler)
 
-    # Register blueprints here
+    # Register the blueprints
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
     from app.user import bp as user_bp
@@ -35,7 +35,7 @@ def create_app():
     from app.admin import bp as admin_bp
     app.register_blueprint(admin_bp)
 
-    #from app.models.models import User
+   
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))

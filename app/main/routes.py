@@ -25,14 +25,15 @@ def reserve_parking():
                     return redirect(url_for("main.reserve_parking"))
                 except:
                     flash("Reservation failed to create. Please contact system administration.")
-                    current_app.logger.exception('Username: %s had a failure when creating a booking for reserve_parking: %s', current_user.username, str(e))
+                    current_app.logger.exception('Username: %s had a failure when creating a booking for reserve_parking: %s', current_user.username)
                     return render_template("main/reserve_parking.html")
             else:
                 flash("All parking spaces for this date are booked. Please select another date.")
         return render_template("reserve_parking.html")
     else:
         current_app.logger.warning('Username: %s attempted to access reserve_parking when they are not authorised', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("user.login"))
 
 #Check how many spaces are available that are not cancelled. With a maximum of 5 spaces
 def available_spaces(date):
@@ -55,7 +56,8 @@ def reservations():
         return render_template("reservations.html", active_reservations=active_reservations, inactive_reservations=inactive_reservations) 
     else: 
         current_app.logger.warning('Username: %s attempted to access reservations when they are not authorised', current_user.username)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("user.login"))
 
     
 @bp.route("/edit_reservations/<int:id>", methods=['POST', 'GET'])
@@ -84,7 +86,8 @@ def edit_reservations(id):
             return render_template("edit_reservation.html", edit=edit)
     else: 
         current_app.logger.critical('Username: %s attempted to edit reservations %s', current_user.username, edit.id)
-        return render_template("unauthorised.html")
+        flash("You are not authorised to access this page")
+        return redirect(url_for("main.reservations"))
     
 @bp.route("/cancel_reservation/", methods=['GET', 'POST'])
 @login_required
@@ -109,4 +112,5 @@ def cancel_reservation():
             return redirect(url_for('main.reservations'))
     else: 
         current_app.logger.critical('Username: %s attempted to cancel reservations %s', current_user.username, reservation.id)
+        flash("You are not authorised to access this page")
         return render_template("reservations.html")
