@@ -22,3 +22,7 @@ https://betterstack.com/community/guides/logging/how-to-start-logging-with-flask
 
 deploy 
 https://levelup.gitconnected.com/deploy-a-production-ready-python-web-app-on-render-for-free-from-start-to-finish-in-3-steps-952e4b7e26a4
+
+deploy workflow 
+https://www.youtube.com/watch?v=DBlmF91Accg&t=201s
+https://github.com/marketplace/actions/render-deploy-action
