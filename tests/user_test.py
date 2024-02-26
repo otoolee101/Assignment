@@ -123,10 +123,11 @@ def test_logout(client):
     response = client.get('/logout/', follow_redirects=True)
     assert b'<h1>Login Page</h1>' in response.data
 
-"""Test booker times out after 60 seconds of inactivity"""
+"""Test booker times out after 60 seconds of inactivity
 def test_timeout(client): 
     response = client.post("/", data={"username": "testuser", "password": "Assignment1/"}, follow_redirects=True)
     assert b'<p>Welcome to Booker.</p>' in response.data
     time.sleep(30)
     responses= client.get("/reserve_parking")
     assert b'<h1>Login Page</h1>' in responses.data
+    """

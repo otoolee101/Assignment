@@ -136,8 +136,9 @@ def test_error_deleting_reservation(client):
         response = client.post('/delete_user/', data= {"id":"1"}, follow_redirects=True)
         assert b'Reservation failed to delete' in response.data
 
-"""logging messages"""
+"""logging messages
 def test_logging_messages(client): 
     response= client.post("/", data={"username": "admin", "password": "Assignment1/"}, follow_redirects=True)
     print(response.data)
-    assert b'Username: admin logged in successfully' in response.datas
+    assert b'Username: admin logged in successfully' in response.data
+"""
