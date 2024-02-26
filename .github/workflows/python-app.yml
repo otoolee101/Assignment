@@ -40,10 +40,11 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
+    - name: Install pytest
+      run: python -m pip install pytest
     - name: Test with pytest
       run: |
         pytest
-  
 
   deploy:
     name: Deploy
