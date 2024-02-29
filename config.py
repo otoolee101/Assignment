@@ -29,5 +29,5 @@ class ProductionConfig:
     TEMPLATES_AUTO_RELOAD = True
     SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')\
-        or 'sqlite:///' + os.path.join(basedir, 'booker.db')
+        or 'sqlite:///' + os.path.join(basedir, 'bookerprod.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False

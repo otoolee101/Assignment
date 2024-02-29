@@ -1,5 +1,5 @@
-import bcrypt
 import pytest
+from app.admin.routes import edit_user
 
 from app.models.models import User, reserve
 
@@ -41,8 +41,8 @@ def test_error_editing_user(client):
     
     with pytest.raises(Exception):
         response = client.post("/edit_user/1", data={"username": "testuser","registration": "TE38 SER"},follow_redirects=True)
-        assert b'User failed to update' in response.data
-
+        assert b'User faileddddddd to update' in response.data
+    
 
 """Test changing account to authorised"""
 def test_authorise_user(client, app):

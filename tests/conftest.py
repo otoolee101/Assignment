@@ -21,6 +21,7 @@ def app():
         admin=User(username='admin', registration='AD70 MIN', password=bcrypt.generate_password_hash('Assignment1/'), role='admin', authorised = 'Y', failed_login_attempts = 0)
         db.session.add(admin)
         db.session.commit()
+        
 
     yield app
     db.drop_all()

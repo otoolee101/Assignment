@@ -63,7 +63,7 @@ def register():
             current_app.logger.info('Username: %s successfully created an account', new_user.username)
             flash("User created successfully. Please log in.")
             return redirect(url_for('user.login'))
-        except Exception: 
+        except Exception as e: 
             flash("There has been a problem creating your user. Please contact system administration for assistance.")
             current_app.logger.warning('Failure to create a user account')
             return render_template("register.html")
@@ -100,7 +100,7 @@ def edit_account(id):
                 flash("Account updated successfully")
                 current_app.logger.info('Username: %s successfully edited account %s', current_user.username, edit_user.username)
                 return redirect(url_for("user.manage_account"))
-            except:
+            except Exception as e:
                 flash("Account failed to update")
                 current_app.logger.warning('Username: %s failed to edited account %s', current_user.username, edit_user.username)
                 return render_template("manage_account.html", edit_account=edit_account)        

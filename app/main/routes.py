@@ -23,7 +23,7 @@ def reserve_parking():
                     current_app.logger.info('Username: %s created a new booking in reserve_parking', current_user.username)
                     flash("Reservation created successfully.")
                     return redirect(url_for("main.reserve_parking"))
-                except:
+                except Exception as e:
                     flash("Reservation failed to create. Please contact system administration.")
                     current_app.logger.exception('Username: %s had a failure when creating a booking for reserve_parking: %s', current_user.username)
                     return render_template("main/reserve_parking.html")
@@ -77,7 +77,7 @@ def edit_reservations(id):
                 current_app.logger.info('Username: %s edited a reservation %s', current_user.username, edit.id)
                 flash("Reservation updated successfully")
                 return redirect(url_for('main.reservations'))
-            except:
+            except Exception as e:
                 flash("Reservation failed to update")
                 current_app.logger.warning('Username: %s failed to edit a reservation %s', current_user.username, edit.id)
                 return redirect(url_for('main.reservations', edit=edit))      
@@ -102,7 +102,7 @@ def cancel_reservation():
                 current_app.logger.info('Username: %s cancelled reservation: %s', current_user.username, reservation.id)
                 flash("Reservation cancelled successfully.")
                 return redirect(url_for('main.reservations'))
-            except:
+            except Exception as e:
                 flash("Cancel reservation failed.")
                 current_app.logger.info('Username: %s failed to cancelled reservation: %s', current_user.username, reservation.id)
                 return redirect(url_for('main.reservations'))

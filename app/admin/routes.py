@@ -34,10 +34,12 @@ def edit_user(id):
                 current_app.logger.info('Username: %s updated user account %s', current_user.username, admin.username)
                 flash("User updated successfully")
                 return redirect(url_for("admin.admin"))
-            except:
+            except Exception as e:
+                current_app.logger.exception(e)
                 flash("User failed to update")
                 current_app.logger.warning('Username: %s failed to update user account %s', current_user.username, admin.username)
                 return render_template("edit_user.html", admin=admin)
+                
         else:
             return render_template("edit_user.html", admin=admin)
     else:
@@ -58,7 +60,7 @@ def delete_user():
             db.session.commit()
             flash("User was deleted successfully.")
             return redirect(url_for("admin.admin"))
-        except:
+        except Exception as e:
             flash("User failed to delete.")
             current_app.logger.warning('Username: %s failed to deleted an account', current_user.username)
             return render_template("admin.html")
@@ -80,7 +82,7 @@ def delete_reservation():
             db.session.commit()
             flash("Reservation was deleted successfully.")
             return redirect(url_for("main.reservations"))
-        except:
+        except Exception as e:
             flash("Reservation failed to delete")
             current_app.logger.warning('Username: %s failed to deleted reservation: %s ', current_user.username, delete_reservation.id)
             return redirect(url_for("main.reservations"))
