@@ -39,13 +39,18 @@ jobs:
         pytest
 
   deploy:
-      name: Deploy
-      needs: [build]
-      runs-on: ubuntu-latest
-      steps: 
-        - name: Deploy to production
-          uses: johnbeynon/render-deploy-action@v0.0.8
-          with:
-            service-id: ${{ secrets.SERVICE_ID }} 
-            api-key: ${{ secrets.RENDER_API_KEY }} 
-            wait-for-success: true
+  name: Deploy
+  needs: [build]
+  runs-on: ubuntu-latest
+  steps: 
+    - name: Set production environment variables
+      run: |
+        echo "export PROD_APP_SETTINGS=config.ProductionConfig" >> $GITHUB_ENV
+        echo "export DATABASE_URL=postgresql://otoolee101:j6tcxzxYpBjfNsul66quUX6QaTqYYWFp@dpg-cngfn7v79t8c73839qr0-a/postgresql_booker_assignment" >> $GITHUB_ENV
+
+    - name: Deploy to production
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{ secrets.SERVICE_ID }} 
+        api-key: ${{ secrets.RENDER_API_KEY }} 
+        wait-for-success: true

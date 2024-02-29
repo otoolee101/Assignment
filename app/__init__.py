@@ -14,7 +14,7 @@ def create_app():
     
     env_config = os.getenv("PROD_APP_SETTINGS", "config.Config")
     app.config.from_object(env_config)
-
+    
     # Initialize Flask extensions here
     db.init_app(app)
     login_manager.init_app(app)
