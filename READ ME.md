@@ -30,3 +30,6 @@ https://github.com/marketplace/actions/render-deploy-action
 
 postsql 
 https://www.google.com/search?sca_esv=6459c9e3b5d5a0f2&rlz=1C1ONGR_en-GBGB982GB982&q=how+to+set+up+a+sqlite+database+on+render&tbm=vid&source=lnms&sa=X&ved=2ahUKEwia_rPCvNGEAxVZVEEAHXQjAlgQ0pQJegQIDBAB&biw=1536&bih=695&dpr=1.25#fpstate=ive&vld=cid:ce1f96ab,vid:IBfj_0Zf2Mo,st:0
+
+utf8
+https://stackoverflow.com/questions/34548846/flask-bcrypt-valueerror-invalid-salt#:~:text=The%20bcrypt%20package%20(which%20Flask,return%20the%20Invalid%20salt%20error.

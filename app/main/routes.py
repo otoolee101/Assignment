@@ -2,7 +2,7 @@ import datetime
 from operator import or_
 from flask import current_app, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
-from sqlalchemy import func
+from sqlalchemy import cast, func, Date
 from app.main import bp
 from app.extensions import db
 from app.models.models import reserve
@@ -47,12 +47,12 @@ def reservations():
     if current_user.authorised =='Y':
         try:
                 if current_user.role =='admin':
-                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date()).all()
-                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date())).all()
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', cast(reserve.date, Date) >= func.current_date()).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', cast(reserve.date, Date) < func.current_date())).all()
                     current_app.logger.info('Username: %s accessed reservations', current_user.username)
                 else:
-                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date(), reserve.username == current_user.username).all()
-                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date()), reserve.username == current_user.username).all()
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', cast(reserve.date, Date) >= func.current_date(), reserve.username == current_user.username).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', cast(reserve.date, Date) < func.current_date()), reserve.username == current_user.username).all()
                     current_app.logger.info('Username: %s accessed reservations', current_user.username)
                 return render_template("reservations.html", active_reservations=active_reservations, inactive_reservations=inactive_reservations) 
         except Exception as e: 
