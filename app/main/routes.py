@@ -79,7 +79,9 @@ def edit_reservations(id):
             current_app.logger.info('Username: %s accessed edit reservation', current_user.username)
             edit.username = request.form['username']
             edit.registration = request.form['registration']
-            edit.date = request.form['date']
+            date_str = request.form['date']
+            edit.date = datetime.strptime(date_str, "%Y-%m-%d").date()
+            
             try:
                 db.session.commit()
                 current_app.logger.info('Username: %s edited a reservation %s', current_user.username, edit.id)

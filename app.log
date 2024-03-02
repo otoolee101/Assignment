@@ -1,28 +1,33 @@
-2024-03-02 15:05:15 - INFO - Username: admin logged in successfully
-2024-03-02 15:05:22 - INFO - Username: admin accessed reserve_parking
-2024-03-02 15:05:22 - ERROR - Exception on /reserve_parking [POST]
-Traceback (most recent call last):
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask\app.py", line 855, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\app\main\routes.py", line 17, in reserve_parking
-    date = datetime.strptime(date_str, "%Y-%m-%d").date()
-           ^^^^^^^^^^^^^^^^^
-AttributeError: module 'datetime' has no attribute 'strptime'
-2024-03-02 15:07:01 - INFO - Username: admin logged in successfully
-2024-03-02 15:07:05 - INFO - Username: admin accessed reserve_parking
-2024-03-02 15:07:05 - INFO - Username: admin created a new booking in reserve_parking
-2024-03-02 15:07:07 - INFO - Username: admin accessed reservations
-2024-03-02 15:07:11 - INFO - Username: admin logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
+2024-03-02 15:24:40 - INFO - Username: testuser logged out
