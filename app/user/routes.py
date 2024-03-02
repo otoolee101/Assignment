@@ -18,35 +18,40 @@ def make_session_permanent():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            if bcrypt.check_password_hash( user.password, form.password.data):
-                session.permanent = True
-                user.failed_login_attempts = 0
-                db.session.commit()
-                login_user(user)            
-                if user.authorised == 'Y':
-                    current_app.logger.info('Username: %s logged in successfully', user.username)
-                    return redirect(url_for('main.reserve_parking'))
-                else:
-                    current_app.logger.info('Username: %s attempted to log in but not yet authorised', user.username)
-                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
-                    return redirect(url_for('user.login'))
-            else:
-                user.failed_login_attempts += 1
-                current_app.logger.warning('Username: %s has a failed login attempt', user.username)
-                db.session.commit()
-                if user.failed_login_attempts >= 3:
-                    user.authorised = 'N'
-                    current_app.logger.warning('Username: %s has locked their account', user.username)
-                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+        try: 
+            user = User.query.filter_by(username=form.username.data).first()
+            if user:
+                if bcrypt.check_password_hash( user.password, form.password.data):
+                    session.permanent = True
+                    user.failed_login_attempts = 0
                     db.session.commit()
+                    login_user(user)            
+                    if user.authorised == 'Y':
+                        current_app.logger.info('Username: %s logged in successfully', user.username)
+                        return redirect(url_for('main.reserve_parking'))
+                    else:
+                        current_app.logger.info('Username: %s attempted to log in but not yet authorised', user.username)
+                        flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+                        return redirect(url_for('user.login'))
                 else:
-                    flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
-        else:
-            flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
-            current_app.logger.warning('There was a failed attempt to login.')
-            return render_template("login.html", form=form)
+                    user.failed_login_attempts += 1
+                    current_app.logger.warning('Username: %s has a failed login attempt', user.username)
+                    db.session.commit()
+                    if user.failed_login_attempts >= 3:
+                        user.authorised = 'N'
+                        current_app.logger.warning('Username: %s has locked their account', user.username)
+                        flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+                        db.session.commit()
+                    else:
+                        flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+            else:
+                flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
+                current_app.logger.warning('There was a failed attempt to login.')
+                return render_template("login.html", form=form)
+        except Exception as e:
+            flash("An error occurred during login. Please try again.")
+            current_app.logger.exception('Error during login: %s', str(e))
+            return redirect(url_for('user.login'))
     return render_template('login.html', form=form)
 
 
@@ -69,6 +74,7 @@ def register():
             return render_template("register.html")
        
     return render_template('register.html', form=form)
+
 
 @bp.route("/manage_account", methods=['GET', 'POST'])
 @login_required
