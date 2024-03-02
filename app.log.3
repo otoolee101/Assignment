@@ -1,4 +1,4 @@
-2024-03-02 17:02:58 - ERROR - Exception on /reserve_parking [POST]
+2024-03-02 17:02:05 - ERROR - Exception on /reserve_parking [POST]
 Traceback (most recent call last):
   File "c:\Users\ellie\OneDrive\Documents\Programming\Python\Level 6\Bookerplay\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1814, in _execute_context
     context = constructor(
@@ -76,7 +76,7 @@ Traceback (most recent call last):
     raise TypeError(
 sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Date type only accepts Python date objects as input.
 [SQL: INSERT INTO reserve (username, registration, date, cancelled) VALUES (?, ?, ?, ?)]
-[parameters: [{'date': '2024-03-16', 'registration': 'AD70MIN', 'username': 'admin'}]]
+[parameters: [{'registration': 'AD70MIN', 'username': 'admin', 'date': '2024-03-16'}]]
 
 During handling of the above exception, another exception occurred:
 
@@ -134,4 +134,4 @@ Traceback (most recent call last):
     raise sa_exc.PendingRollbackError(
 sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (builtins.TypeError) SQLite Date type only accepts Python date objects as input.
 [SQL: INSERT INTO reserve (username, registration, date, cancelled) VALUES (?, ?, ?, ?)]
-[parameters: [{'date': '2024-03-16', 'registration': 'AD70MIN', 'username': 'admin'}]] (Background on this error at: https://sqlalche.me/e/20/7s2a)
+[parameters: [{'registration': 'AD70MIN', 'username': 'admin', 'date': '2024-03-16'}]] (Background on this error at: https://sqlalche.me/e/20/7s2a)

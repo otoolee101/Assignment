@@ -43,19 +43,19 @@ def available_spaces(date):
     reserved_spaces_count = reserve.query.filter(reserve.date==date, reserve.cancelled == 'N').count()
     available_spaces_count = 5 - reserved_spaces_count
     return available_spaces_count
-
+#altered to take cast off 
 @bp.route("/reservations")
 @login_required
 def reservations():
     if current_user.authorised =='Y':
         try:
                 if current_user.role =='admin':
-                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', cast(reserve.date, Date) >= func.current_date()).all()
-                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', cast(reserve.date, Date) < func.current_date())).all()
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date()).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date())).all()
                     current_app.logger.info('Username: %s accessed reservations', current_user.username)
                 else:
-                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', cast(reserve.date, Date) >= func.current_date(), reserve.username == current_user.username).all()
-                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', cast(reserve.date, Date) < func.current_date()), reserve.username == current_user.username).all()
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date(), reserve.username == current_user.username).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y',reserve.date < func.current_date()), reserve.username == current_user.username).all()
                     current_app.logger.info('Username: %s accessed reservations', current_user.username)
                 return render_template("reservations.html", active_reservations=active_reservations, inactive_reservations=inactive_reservations) 
         except Exception as e: 
