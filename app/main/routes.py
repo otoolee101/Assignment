@@ -43,7 +43,7 @@ def available_spaces(date):
     reserved_spaces_count = reserve.query.filter(reserve.date==date, reserve.cancelled == 'N').count()
     available_spaces_count = 5 - reserved_spaces_count
     return available_spaces_count
-
+#altered to take cast off 
 @bp.route("/reservations")
 @login_required
 def reservations():
