@@ -1,3 +1,4 @@
+from datetime import datetime
 from app.extensions import db
 from flask_login import UserMixin
 
@@ -21,4 +22,3 @@ class reserve(db.Model):
     registration = db.Column(db.String(9), nullable=False)
     date = db.Column(db.Date,nullable=False)
     cancelled = db.Column(db.String(1), nullable=False, default='N')
-    
