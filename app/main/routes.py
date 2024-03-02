@@ -45,20 +45,25 @@ def available_spaces(date):
 @login_required
 def reservations():
     if current_user.authorised =='Y':
-        if current_user.role =='admin':
-            active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date()).all()
-            inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date())).all()
-            current_app.logger.info('Username: %s accessed reservations', current_user.username)
-        else:
-            active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date(), reserve.username == current_user.username).all()
-            inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date()), reserve.username == current_user.username).all()
-            current_app.logger.info('Username: %s accessed reservations', current_user.username)
-        return render_template("reservations.html", active_reservations=active_reservations, inactive_reservations=inactive_reservations) 
+        try:
+                if current_user.role =='admin':
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date()).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date())).all()
+                    current_app.logger.info('Username: %s accessed reservations', current_user.username)
+                else:
+                    active_reservations = reserve.query.filter(reserve.cancelled == 'N', reserve.date >= func.current_date(), reserve.username == current_user.username).all()
+                    inactive_reservations = reserve.query.filter(or_(reserve.cancelled == 'Y', reserve.date < func.current_date()), reserve.username == current_user.username).all()
+                    current_app.logger.info('Username: %s accessed reservations', current_user.username)
+                return render_template("reservations.html", active_reservations=active_reservations, inactive_reservations=inactive_reservations) 
+        except Exception as e: 
+            flash("An error occurred retrieving reservations. Please try again.")
+            current_app.logger.exception('Error during retrieving reservations: %s', str(e))
+            return redirect(url_for('main.reserve_parking'))
     else: 
         current_app.logger.warning('Username: %s attempted to access reservations when they are not authorised', current_user.username)
         flash("You are not authorised to access this page")
         return redirect(url_for("user.login"))
-
+    
     
 @bp.route("/edit_reservations/<int:id>", methods=['POST', 'GET'])
 @login_required

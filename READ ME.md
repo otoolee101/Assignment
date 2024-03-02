@@ -7,6 +7,7 @@ Flask shell
 >>> from app.models.models import User, reserve
 >>> db.create_all()
 >>> admin=User(username='admin1', registration = 'AD70MIN', password=bcrypt.generate_password_hash('Assignment1/'), role='admin', authorised= 'Y')
+>>>admin=User(username='admin', registration = 'AD70MIN', password=bcrypt.generate_password_hash('Assignment1/').decode('utf-8'), role='admin', authorised= 'Y')
 >>> db.session.add(admin)
 >>> db.session.commit()
 >>> exit()

@@ -72,3 +72,7 @@ AttributeError: 'function' object has no attribute 'hashed_password'
 2024-03-02 13:34:54 - INFO - Username: admin logged out
 2024-03-02 13:35:02 - WARNING - Username: admin has a failed login attempt
 2024-03-02 13:35:06 - INFO - Username: admin logged in successfully
+2024-03-02 13:57:22 - INFO - Username: admin logged in successfully
+2024-03-02 13:57:29 - INFO - Username: admin accessed admin
+2024-03-02 13:57:36 - INFO - Username: admin logged out
+2024-03-02 13:57:40 - INFO - Username: lucy attempted to log in but not yet authorised

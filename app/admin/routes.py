@@ -9,9 +9,14 @@ from app.extensions import db
 @login_required
 def admin():
     if current_user.role == 'admin':
-        admin= User.query.all()
-        current_app.logger.info('Username: %s accessed admin', current_user.username)
-        return render_template('admin.html',admin=admin)
+        try: 
+            admin= User.query.all()
+            current_app.logger.info('Username: %s accessed admin', current_user.username)
+            return render_template('admin.html',admin=admin)
+        except Exception as e: 
+            flash("An error occurred retrieving users.")
+            current_app.logger.exception('Error during retrieving all users: %s', str(e))
+            return redirect(url_for('main.reserve_parking'))
     else:
         current_app.logger.critical('Username: %s accessed attempted to access admin', current_user.username)
         flash("You are not authorised to access this page")
