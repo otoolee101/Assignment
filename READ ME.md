@@ -33,3 +33,5 @@ https://www.google.com/search?sca_esv=6459c9e3b5d5a0f2&rlz=1C1ONGR_en-GBGB982GB9
 
 utf8
 https://stackoverflow.com/questions/34548846/flask-bcrypt-valueerror-invalid-salt#:~:text=The%20bcrypt%20package%20(which%20Flask,return%20the%20Invalid%20salt%20error.
+
+https://flask-bcrypt.readthedocs.io/en/latest/

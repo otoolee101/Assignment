@@ -6,6 +6,7 @@ from sqlalchemy import cast, func, Date
 from app.main import bp
 from app.extensions import db
 from app.models.models import reserve
+from datetime import datetime
    
 @bp.route("/reserve_parking", methods=["GET", "POST"])
 @login_required
@@ -13,7 +14,8 @@ def reserve_parking():
     if current_user.authorised == 'Y':
         if request.method == "POST":
             current_app.logger.info('Username: %s accessed reserve_parking', current_user.username)
-            date = request.form.get("date")
+            date_str = request.form.get("date")
+            date = datetime.strptime(date_str, "%Y-%m-%d").date()
             available_spaces_count = available_spaces(date)
             if available_spaces_count > 0:
                 reservation = reserve(username=request.form.get("username"),registration=request.form.get("registration"), date=date)
@@ -34,6 +36,7 @@ def reserve_parking():
         current_app.logger.warning('Username: %s attempted to access reserve_parking when they are not authorised', current_user.username)
         flash("You are not authorised to access this page")
         return redirect(url_for("user.login"))
+        
 
 #Check how many spaces are available that are not cancelled. With a maximum of 5 spaces
 def available_spaces(date):
