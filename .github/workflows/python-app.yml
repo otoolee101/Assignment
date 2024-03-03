@@ -38,31 +38,31 @@ jobs:
       run: |
         pytest
 
-deploy_production:
-  name: Deploy to Production
-  needs: [build]
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/master'
-  steps:
-    - name: Deploy to production
-      uses: johnbeynon/render-deploy-action@v0.0.8
-      with:
-        service-id: ${{ secrets.SERVICE_ID }}
-        api-key: ${{ secrets.RENDER_API_KEY }}
-        PROD_APP_SETTINGS: ${{ secrets.PROD_APP_SETTINGS }}
-        DATABASE_URI: ${{ secrets.DATABASE_URL }}
-        wait-for-success: true
+  deploy_production:
+    name: Deploy to Production
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          PROD_APP_SETTINGS: ${{ secrets.PROD_APP_SETTINGS }}
+          DATABASE_URI: ${{ secrets.DATABASE_URL }}
+          wait-for-success: true
 
-deploy_development:
-  name: Deploy to Development
-  needs: [build]
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/development'
-  steps:
-    - name: Deploy to development
-      uses: johnbeynon/render-deploy-action@v0.0.8
-      with:
-        service-id: ${{ secrets.DEVELOPMENT_SERVICE_ID }}
-        api-key: ${{ secrets.DEVELOPMENT_RENDER_API_KEY}}
-        PROD_APP_SETTINGS: ${{ secrets.DEVELOPMENT_APP_SETTING }}
-        wait-for-success: true
+  deploy_development:
+    name: Deploy to Development
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/development'
+    steps:
+      - name: Deploy to development
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.DEVELOPMENT_SERVICE_ID }}
+          api-key: ${{ secrets.DEVELOPMENT_RENDER_API_KEY}}
+          PROD_APP_SETTINGS: ${{ secrets.DEVELOPMENT_APP_SETTING }}
+          wait-for-success: true
