@@ -42,6 +42,7 @@ jobs:
       name: Deploy
       needs: [build]
       runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/master'
       steps: 
         - name: Deploy to production
           uses: johnbeynon/render-deploy-action@v0.0.8
@@ -51,3 +52,18 @@ jobs:
             PROD_APP_SETTINGS: ${{ secrets.PROD_APP_SETTINGS }} 
             DATABASE_URI: ${{ secrets.DATABASE_URL }} 
             wait-for-success: true     
+
+  deploy:
+      name: Deploy
+      needs: [build]
+      runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/development'
+      steps: 
+        - name: Deploy to production
+          uses: johnbeynon/render-deploy-action@v0.0.8
+          with:
+            service-id: ${{ secrets.SERVICE_ID }} 
+            api-key: ${{ secrets.RENDER_API_KEY }} 
+            PROD_APP_SETTINGS: ${{ secrets.PROD_APP_SETTINGS }} 
+            DATABASE_URI: ${{ secrets.DATABASE_URL }} 
+            wait-for-success: true 
