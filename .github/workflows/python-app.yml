@@ -38,7 +38,7 @@ jobs:
       run: |
         pytest
 
-  deploy:
+  deploy_production:
       name: Deploy
       needs: [build]
       runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
             DATABASE_URI: ${{ secrets.DATABASE_URL }} 
             wait-for-success: true     
 
-  deploy:
+  deploy_development:
       name: Deploy
       needs: [build]
       runs-on: ubuntu-latest
@@ -67,3 +67,4 @@ jobs:
             PROD_APP_SETTINGS: ${{ secrets.PROD_APP_SETTINGS }} 
             DATABASE_URI: ${{ secrets.DATABASE_URL }} 
             wait-for-success: true 
+
