@@ -27,26 +27,31 @@ def admin():
 @login_required
 def edit_user(id):
     admin = User.query.get_or_404(id)
-    if current_user.role == 'admin':
-        if request.method == "POST":
-            current_app.logger.info('Username: %s accessed edit_user', current_user.username)
-            admin.username = request.form['username']
-            admin.registration = request.form['registration']
-            admin.role = request.form['role']
-            admin.authorised = request.form['authorised']
-            try:
-                db.session.commit()
-                current_app.logger.info('Username: %s updated user account %s', current_user.username, admin.username)
-                flash("User updated successfully")
-                return redirect(url_for("admin.admin"))
-            except Exception as e:
-                current_app.logger.exception(e)
-                flash("User failed to update")
-                current_app.logger.warning('Username: %s failed to update user account %s', current_user.username, admin.username)
+    try: 
+        if current_user.role == 'admin':
+            if request.method == "POST":
+                current_app.logger.info('Username: %s accessed edit_user', current_user.username)
+                admin.username = request.form['username']
+                admin.registration = request.form['registration']
+                admin.role = request.form['role']
+                admin.authorised = request.form['authorised']
+                try:
+                    db.session.commit()
+                    current_app.logger.info('Username: %s updated user account %s', current_user.username, admin.username)
+                    flash("User updated successfully")
+                    return redirect(url_for("admin.admin"))
+                except Exception as e:
+                    current_app.logger.exception(e)
+                    flash("User failed to update")
+                    current_app.logger.warning('Username: %s failed to update user account %s', current_user.username, admin.username)
+                    return render_template("edit_user.html", admin=admin)
+                    
+            else:
                 return render_template("edit_user.html", admin=admin)
-                
-        else:
-            return render_template("edit_user.html", admin=admin)
+    except: 
+        current_app.logger.critical('Username: %s had an error when editing %s account', current_user.username, admin.username)
+        flash("There been an error updating user")
+
     else:
         current_app.logger.critical('Username: %s accessed attempted to edit %s account', current_user.username, admin.username)
         flash("You are not authorised to access this page")
