@@ -39,7 +39,7 @@ def login():
                     db.session.commit()
                     if user.failed_login_attempts >= 3:
                         user.authorised = 'N'
-                        current_app.logger.warning('Username: %s has locked their account', user.username)
+                        current_app.logger.critical('Username: %s has locked their account', user.username)
                         flash ("Unsucessful sign in. Either username/password incorrect, account locked or unauthorised.")
                         db.session.commit()
                     else:
