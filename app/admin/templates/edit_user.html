@@ -7,11 +7,11 @@ Admin
     <form method='post' action='/edit_user/{{admin.id}}'>
             <label>Username:</label>
             <br>
-                <input type='text' name='username' size="100" required class='form-control' value='{{admin.username}}'>
+                <input type='text' name='username' size="100" required class='form-control' value='{{admin.username}}' oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '')">
             <p></p>
             <label>Registration:</label>
             <br>
-                <input type='text' name='registration' size="100" required class='form-control' value='{{admin.registration}}'>
+                <input type='text' name='registration' size="100" required class='form-control' value='{{admin.registration}}' oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '')">
             <p></p>
             <label>Role:</label>
             <br>
