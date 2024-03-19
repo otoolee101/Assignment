@@ -1,4 +1,12 @@
-.venv\Scripts\Activate.ps1
+# Installation Instructions #
+## Create a virutal environment ## 
+- Open "Ellie_OToole_Assignment" folder structure in VSCode. 
+- View>Command Palette
+- Select "Python : Create Environment"
+- Select "Venv"
+- Select Python Version 
+- Tick requirements.txt
+- enter into command .venv\Scripts\Activate.ps1
 
 ## Install database and create admin user ##
 In terminal enter the following: 
@@ -11,9 +19,23 @@ Flask shell
 >>> db.session.commit()
 >>> exit()
 
-stop special chars
-oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g, '')"
+## Run application ##
+In terminal enter the following: 
+flask run
 
+To access admin login with the following credentials:
+username: admin
+password: Assignment1/
+
+## Testing ##
+To complete test run the following into the terminal: 
+coverage run -m pytest
+
+To see coverage report run the following into the terminal: 
+coverage report -m
+
+
+## References 
 time out ref 
 https://stackoverflow.com/questions/11783025/is-there-an-easy-way-to-make-sessions-timeout-in-flask
 
